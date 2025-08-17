@@ -164,6 +164,10 @@
   --rz-chart-legend-focus-outline-offset: #{$chart-legend-focus-outline-offset};
   --rz-chart-tooltip-background: #{$chart-tooltip-background};
   --rz-chart-tooltip-color: #{$chart-tooltip-color};
+  --rz-chart-tooltip-border-radius: #{$chart-tooltip-border-radius};
+  --rz-chart-tooltip-font-size: #{$chart-tooltip-font-size};
+  --rz-chart-tooltip-item-border-radius: #{$chart-tooltip-item-border-radius};
+  --rz-chart-tooltip-item-hover-background-color: #{$chart-tooltip-item-hover-background-color};
   --rz-chart-marker-stroke: #{$chart-marker-stroke};
 
   /* Checkbox */
@@ -834,7 +838,9 @@
   --rz-profile-menu-item-icon-margin-inline: #{$profile-menu-item-icon-margin-inline};
 
   /* ProgressBar */
+  --rz-progressbar-value: #{$progressbar-value};
   --rz-progressbar-background-color: #{$progressbar-background-color};
+  --rz-progressbar-color: #{$progressbar-color};
   --rz-progressbar-font-size: #{$progressbar-font-size};
   --rz-progressbar-height: #{$progressbar-height};
   --rz-progressbar-border-radius: #{$progressbar-border-radius};

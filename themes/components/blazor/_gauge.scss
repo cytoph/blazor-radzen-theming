@@ -1,0 +1,64 @@
+$gauge-scale-color: var(--rz-base-300) !default;
+$gauge-scale-label-color: var(--rz-text-tertiary-color) !default;
+$gauge-scale-font-size: var(--rz-body-font-size) !default;
+$gauge-pointer-color: var(--rz-text-secondary-color) !default;
+$gauge-arc-scale-color: var(--rz-base-300) !default;
+$gauge-arc-scale-label-color: var(--rz-text-tertiary-color) !default;
+$gauge-arc-value-color: var(--rz-secondary) !default;
+
+.rz-gauge,
+.rz-arc-gauge {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+}
+
+.rz-gauge {
+  .rz-line,
+  .rz-tick {
+    stroke: var(--rz-gauge-scale-color);
+  }
+
+  .rz-tick-text {
+    font-size: var(--rz-gauge-scale-font-size);
+    fill: var(--rz-gauge-scale-label-color);
+  }
+}
+
+.rz-arc-gauge {
+  .rz-line,
+  .rz-tick {
+    stroke: var(--rz-gauge-arc-scale-color);
+  }
+
+  .rz-tick-text {
+    font-size: var(--rz-gauge-scale-font-size);
+    fill: var(--rz-gauge-arc-scale-label-color);
+  }
+}
+
+.rz-gauge-value {
+  position: absolute;
+  transform: translateX(-50%);
+  padding: 0.5rem;
+}
+
+.rz-arc-gauge-value {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem;
+}
+
+.rz-gauge-pointer {
+  fill: var(--rz-gauge-pointer-color);
+}
+
+.rz-arc-gauge-scale-value {
+  fill: var(--rz-gauge-arc-value-color);
+}
+
+.rz-arc-gauge-scale {
+  fill: var(--rz-gauge-arc-scale-color);
+}

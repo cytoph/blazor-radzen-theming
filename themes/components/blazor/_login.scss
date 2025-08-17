@@ -1,0 +1,79 @@
+$login-register-background-color: var(--rz-base-100) !default;
+$login-register-padding-block: 1rem !default;
+$login-register-padding-inline: 1rem !default;
+$login-register-margin-block: 2rem 0 !default;
+$login-register-margin-inline: 0 !default;
+$login-register-button-margin-block: 0 !default;
+$login-register-button-margin-inline: 0 !default;
+
+.rz-login {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .rz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .rz-form-row {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      gap: 0.5rem;
+
+      .rz-label {
+        flex: 1 8rem;
+      }
+
+      .rz-form-input-wrapper {
+        flex: 3 14rem;
+      }
+
+      .rz-textbox  {
+        display: block;
+        width: 100%;
+
+        &.invalid {
+          border: var(--rz-border-danger);
+        }
+      }
+
+      .rz-switch {
+        margin-inline-end: 0.5rem;
+      }
+    }
+
+    .rz-messages-error {
+      position: absolute;
+    } 
+  }
+
+  .rz-register {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background-color: var(--rz-login-register-background-color);
+    margin-block: var(--rz-login-register-margin-block);
+    margin-inline: var(--rz-login-register-margin-inline);
+    padding-block: var(--rz-login-register-padding-block);
+    padding-inline: var(--rz-login-register-padding-inline);
+    border-radius: var(--rz-border-radius);
+
+    .rz-button {
+      margin-block: var(--rz-login-register-button-margin-block);
+      margin-inline: var(--rz-login-register-button-margin-inline);
+    }
+  }
+
+  .rz-login-buttons {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

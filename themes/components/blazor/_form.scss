@@ -1,0 +1,44 @@
+$form-error-color: var(--rz-danger) !default;
+$form-error-font-size: 0.75rem !default;
+$validator-background-color: var(--rz-danger) !default;
+$validator-color: var(--rz-on-danger) !default;
+$validator-shadow: 0 6px 14px 0 rgba($rz-danger, 0.3) !default;
+$validator-text-padding: 0 !default;
+$validator-padding: 0.25rem 0.5rem !default;
+$validator-pointer-size: 0.375rem !default;
+$validator-transform: translateY(12px) !default;
+
+.rz-form {
+  box-sizing: border-box;
+}
+
+.rz-message {
+  box-sizing: border-box;
+}
+
+.rz-messages-error {
+  display: inline-block;
+  color: var(--rz-form-error-color);
+  font-size: var(--rz-form-error-font-size);
+  padding: var(--rz-validator-text-padding);
+}
+
+.rz-message-popup {
+  position: absolute;
+  background-color: var(--rz-validator-background-color);
+  transform: var(--rz-validator-transform);
+  box-shadow: var(--rz-validator-shadow);
+  padding: var(--rz-validator-padding);
+  border-radius: var(--rz-border-radius);
+  color: var(--rz-validator-color);
+  pointer-events: none;
+
+  &:before {
+    content: '';
+    border: var(--rz-validator-pointer-size) solid transparent;
+    border-bottom-color: var(--rz-validator-background-color);
+    position: absolute;
+    inset-block-start: calc(-2 * var(--rz-validator-pointer-size));
+    inset-inline-start: calc(var(--rz-border-radius) + (var(--rz-validator-pointer-size) / 2));
+  }
+}

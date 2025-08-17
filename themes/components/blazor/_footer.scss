@@ -1,0 +1,20 @@
+$footer-padding: 1rem !default;
+$footer-background-color: var(--rz-base-background-color) !default;
+$footer-border: var(--rz-border-base-200) !default;
+$footer-color: var(--rz-text-color) !default;
+$footer-z: 2 !default;
+
+.rz-footer {
+  padding: var(--rz-footer-padding);
+  border-top: var(--rz-footer-border);
+  background-color: var(--rz-footer-background-color);
+  color: var(--rz-footer-color);
+
+  &.fixed {
+    position: fixed;
+    z-index: var(--rz-footer-z);
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

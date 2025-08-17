@@ -1,0 +1,9 @@
+$text-area-padding-block: var(--rz-input-padding-block) !default;
+$text-area-padding-inline: var(--rz-input-padding-inline) !default;
+
+.rz-textarea {
+  @extend %input;
+  padding-block: var(--rz-text-area-padding-block);
+  padding-inline: var(--rz-text-area-padding-inline);
+  height: auto;
+}

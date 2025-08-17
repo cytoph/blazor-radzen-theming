@@ -1,0 +1,13 @@
+$gravatar-width: 2rem !default;
+$gravatar-height: $gravatar-width !default;
+$gravatar-border-radius: 50% !default;
+$gravatar-box-shadow: none !default;
+
+.rz-gravatar {
+  box-sizing: border-box;
+  width: var(--rz-gravatar-width);
+  height: var(--rz-gravatar-height);
+  display: inline-block;
+  border-radius: var(--rz-gravatar-border-radius);
+  box-shadow: var(--rz-gravatar-box-shadow);
+}

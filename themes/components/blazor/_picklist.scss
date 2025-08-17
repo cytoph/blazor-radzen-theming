@@ -1,0 +1,22 @@
+.rz-picklist-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  --rz-gap: 1rem;
+}
+
+.rz-picklist-source-wrapper,
+.rz-picklist-target-wrapper {
+  flex: 1;
+  --rz-gap: 0.5rem;
+  overflow: hidden;
+
+  .rz-listbox {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.rz-picklist-buttons.rz-flex-row .rzi {
+  transform: rotate(90deg);
+}

@@ -1,0 +1,35 @@
+.rz-link {
+  box-sizing: border-box;
+  color: var(--rz-link-color);
+  text-decoration: none;
+  cursor: pointer;
+
+  .rz-link-text {
+    text-decoration: var(--rz-link-text-decoration)
+  }
+  
+  .rzi {
+    font-size: inherit;
+    vertical-align: middle;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--rz-link-hover-color);
+    text-decoration: none;
+    
+    .rz-link-text {
+      text-decoration: var(--rz-link-hover-text-decoration);
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--rz-link-focus-outline);
+  }
+}
+
+.rz-state-highlight {
+  .link {
+    color: var(--rz-text-contrast-color);
+  }
+}

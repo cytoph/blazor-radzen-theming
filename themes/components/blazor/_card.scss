@@ -1,0 +1,44 @@
+$card-padding: 1.25rem !default;
+$card-background-color: var(--rz-base-background-color) !default;
+$card-flat-background-color: var(--rz-base-100) !default;
+$card-shadow: var(--rz-shadow-2) !default;
+$card-border: var(--rz-border-normal) !default;
+$card-border-radius: var(--rz-border-radius) !default;
+$card-heading-margin-bottom: 0.5rem !default;
+
+ .rz-card {
+  box-sizing: border-box;
+  padding: var(--rz-card-padding);
+  border-radius: var(--rz-card-border-radius);
+  background-color: var(--rz-card-background-color);
+
+  &.rz-variant-filled {
+    box-shadow: var(--rz-card-shadow);
+  }
+
+  &.rz-variant-flat {
+    background-color: var(--rz-card-flat-background-color);
+  }
+
+  &.rz-variant-outlined {
+    background: transparent;
+    border: var(--rz-card-border); ;
+  }
+
+  &.rz-variant-text {
+    background: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: var(--rz-card-heading-margin-bottom);
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

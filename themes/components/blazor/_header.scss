@@ -1,0 +1,26 @@
+$header-background-color: var(--rz-base-background-color) !default;
+$header-min-height: 3.125rem !default;
+$header-z: 2 !default;
+$header-border: var(--rz-border-base-200) !default;
+$header-color: var(--rz-text-color) !default;
+$header-shadow: none !default;
+
+.rz-header {
+  background-color: var(--rz-header-background-color);
+  min-height: var(--rz-header-min-height);
+  border-bottom: var(--rz-header-border);
+  color: var(--rz-header-color);
+  box-shadow: var(--rz-header-shadow);
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--rz-header-z);
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

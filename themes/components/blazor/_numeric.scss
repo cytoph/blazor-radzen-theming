@@ -1,0 +1,102 @@
+$numeric-line-height: 1.25rem !default;
+$numeric-input-padding-block: 0.5rem !default;
+$numeric-input-padding-inline: 0.5rem 1.25rem !default;
+$numeric-button-width: 0.875rem !default;
+$numeric-button-height: $numeric-button-width !default;
+$numeric-button-offset: 2px !default;
+$numeric-button-border-radius: calc(var(--rz-border-radius) - 2px) !default;
+$numeric-button-background-color: var(--rz-secondary) !default;
+$numeric-button-color: var(--rz-on-secondary) !default;
+$numeric-button-disabled-background-color: var(--rz-base-300) !default;
+$numeric-button-disabled-color: var(--rz-text-disabled-color) !default;
+
+.rz-numeric {
+  display: inline-block;
+  position: relative;
+
+  @extend %input;
+
+  padding: 0px;
+
+  input[type='number'],
+  input[type='text'] {
+    -moz-appearance: textfield;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    line-height: var(--rz-numeric-line-height);
+    padding-block: var(--rz-numeric-input-padding-block);
+    padding-inline: var(--rz-numeric-input-padding-inline);
+    outline: none;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &:focus-within:not(.rz-state-disabled) {
+    @extend %input-focus;
+  }
+
+  &.rz-state-disabled {
+    @extend %input-disabled;
+
+    .rz-numeric-button {
+      background-color: var(--rz-numeric-button-disabled-background-color);
+      color: var(--rz-numeric-button-disabled-color);
+
+      &:active,
+      &:hover {
+        background-color: var(--rz-numeric-button-disabled-background-color);
+        color: var(--rz-numeric-button-disabled-color);
+        background-image: none;
+        box-shadow: none;
+        cursor: initial;
+      }
+    }
+  }
+}
+
+.rz-numeric-button {
+  position: absolute;
+  inset-inline-end: var(--rz-numeric-button-offset);
+  padding: 0;
+
+  width: var(--rz-numeric-button-width);
+  height: var(--rz-numeric-button-height);
+  border-radius: var(--rz-numeric-button-border-radius);
+  background-color: var(--rz-numeric-button-background-color);
+  color: var(--rz-numeric-button-color);
+
+  &:hover {
+    background-color: var(--rz-numeric-button-background-color);
+  }
+
+  .rzi {
+    font-size: var(--rz-numeric-button-height);
+    vertical-align: top;
+  }
+
+  .rzi-caret-up {
+    &:before {
+      content: 'expand_less';
+    }
+  }
+
+  .rzi-caret-down {
+    &:before {
+      content: 'expand_more';
+    }
+  }
+}
+
+.rz-numeric-up {
+  inset-block-start: var(--rz-numeric-button-offset);
+}
+
+.rz-numeric-down {
+  inset-block-end: var(--rz-numeric-button-offset);
+}

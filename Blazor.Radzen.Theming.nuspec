@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Blazor.Radzen.Theming</id>
-    <version>5.7.0</version>
+    <version>5.7.1</version>
     <title>SCSS Source Files for Radzen Blazor Components</title>
     <authors>cytoph</authors>
     <owners></owners>
@@ -17,16 +17,16 @@
     <repository type="git" url="https://github.com/cytoph/blazor-radzen-theming.git" branch="main" commit="$commitId$" />
     <dependencies>
       <group targetFramework="net6.0">
-        <dependency id="Radzen.Blazor" version="5.7.0" />
+        <dependency id="Radzen.Blazor" version="5.7.1" />
       </group>
       <group targetFramework="net7.0">
-        <dependency id="Radzen.Blazor" version="5.7.0" />
+        <dependency id="Radzen.Blazor" version="5.7.1" />
       </group>
       <group targetFramework="net8.0">
-        <dependency id="Radzen.Blazor" version="5.7.0" />
+        <dependency id="Radzen.Blazor" version="5.7.1" />
       </group>
       <group targetFramework="net9.0">
-        <dependency id="Radzen.Blazor" version="5.7.0" />
+        <dependency id="Radzen.Blazor" version="5.7.1" />
       </group>
     </dependencies>
   </metadata>

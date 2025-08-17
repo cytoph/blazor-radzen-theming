@@ -1,0 +1,36 @@
+$chip-background-color: var(--rz-base-200) !default;
+$chip-color: var(--rz-text-color) !default;
+$chip-padding-block: 0 !default;
+$chip-padding-inline: 0.5rem 0 !default;
+$chip-gap: 0.5rem !default;
+$chip-border-radius: var(--rz-border-radius) !default;
+$chip-font-size: 0.875rem !default;
+
+@mixin chip() {
+  .rz-chip {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--rz-chip-gap);
+    padding-block: var(--rz-chip-padding-block);
+    padding-inline: var(--rz-chip-padding-inline);
+    color: var(--rz-chip-color);
+    background-color: var(--rz-chip-background-color);
+    border-radius: var(--rz-chip-border-radius);
+  
+    .rz-chip-text {
+      font-size: var(--rz-chip-font-size)
+    }
+  
+    .rz-button {
+      border-radius: var(--rz-chip-border-radius);
+      box-shadow: none;
+      align-self: stretch;
+    }
+  
+    .rzi {
+      vertical-align: middle;
+      font-size: 1rem;
+    }
+  }
+}

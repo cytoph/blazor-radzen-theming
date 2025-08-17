@@ -1,0 +1,84 @@
+$panel-background-color: var(--rz-base-background-color) !default;
+$panel-padding: 0.5rem !default;
+$panel-title-line-height: 1.25rem !default;
+$panel-title-font-weight: 600 !default;
+$panel-content-margin: 0 !default;
+$panel-toggle-icon-width: var(--rz-icon-size) !default;
+$panel-toggle-icon-height: $panel-toggle-icon-width !default;
+$panel-toggle-icon-font-size: var(--rz-icon-size) !default;
+$panel-toggle-icon-border-radius: 2px !default;
+$panel-toggle-icon-background-color: var(--rz-base-200) !default;
+$panel-toggle-icon-focus-outline: var(--rz-outline-focus) !default;
+$panel-toggle-icon-focus-outline-offset: var(--rz-outline-offset) !default;
+$panel-hover-color: var(--rz-secondary) !default;
+$panel-border-radius: var(--rz-border-radius) !default;
+$panel-shadow: none !default;
+
+.rz-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--rz-panel-padding);
+  background: var(--rz-panel-background-color);
+  border-radius: var(--rz-panel-border-radius);
+  box-shadow: var(--rz-panel-shadow);
+}
+
+.rz-panel-titlebar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rz-panel-content {
+  margin: var(--rz-panel-content-margin);
+}
+
+.rz-panel-content-wrapper {
+  &[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+.rz-panel-title {
+  line-height: var(--rz-panel-title-line-height);
+  font-weight: var(--rz-panel-title-font-weight);
+}
+
+.rz-panel-titlebar-toggler {
+  width: var(--rz-panel-toggle-icon-width);
+  height: var(--rz-panel-toggle-icon-height);
+  font-size: var(--rz-panel-toggle-icon-font-size);
+  border-radius: var(--rz-panel-toggle-icon-border-radius);
+  background-color: var(--rz-panel-toggle-icon-background-color);
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--rz-panel-hover-color);
+  }
+
+  &:focus {
+    outline: var(--rz-outline-normal);
+  }
+
+  &:focus-visible {
+    outline: var(--rz-panel-toggle-icon-focus-outline);
+    outline-offset: var(--rz-panel-toggle-icon-focus-outline-offset);
+  }
+
+  .rzi-minus {
+    &:before {
+      content: 'remove';
+    }
+  }
+
+  .rzi-plus {
+    &:before {
+      content: 'add';
+    }
+  }
+}

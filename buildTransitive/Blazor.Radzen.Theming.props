@@ -1,0 +1,21 @@
+<Project>
+	<PropertyGroup>
+		<BRT_TargetPath>$(MSBuildProjectDirectory)\obj\Radzen.Blazor</BRT_TargetPath>
+  		<BRT_CurrentVersion>$([System.IO.Path]::GetFileName($([System.IO.Path]::GetDirectoryName($([System.IO.Path]::GetDirectoryName($(MSBuildThisFileDirectory)))))))</BRT_CurrentVersion>
+		<BRT_VersionFilePath>$(BRT_TargetPath)\.version-$(BRT_CurrentVersion)</BRT_VersionFilePath>
+	</PropertyGroup>
+
+	<Target Name="ProvideContentFiles" AfterTargets="CollectPackageReferences" Condition="!Exists('$(BRT_VersionFilePath)')">
+		<ItemGroup>
+			<BRT_FilesToCopy Include="$(MSBuildThisFileDirectory)..\themes\**\*" />
+		</ItemGroup>
+		<RemoveDir Directories="$(BRT_TargetPath)" />
+		<Copy SourceFiles="@(BRT_FilesToCopy)"
+			  DestinationFolder="$(BRT_TargetPath)\%(RecursiveDir)"
+			  UseSymbolicLinksIfPossible="true" />
+		<WriteLinesToFile File="$(BRT_VersionFilePath)"
+						  Lines="$(BRT_CurrentVersion)"
+						  Overwrite="true" />
+		<Message Text="Provided content files in obj directory" />
+	</Target>
+</Project>

@@ -43,12 +43,12 @@ jobs:
           -Exclude ".github\**" `
           -NonInteractive
     
-    # - name: Publish to NuGet
-    #   run: |
-    #     nuget push .\packages\*.nupkg `
-    #       -Source https://api.nuget.org/v3/index.json `
-    #       -ApiKey ${{ secrets.NUGET_API_KEY }} `
-    #       -NonInteractive
+    - name: Publish to NuGet
+      run: |
+        nuget push .\packages\*.nupkg `
+          -Source https://api.nuget.org/v3/index.json `
+          -ApiKey ${{ secrets.NUGET_API_KEY }} `
+          -NonInteractive
     
     - name: Upload package as artifact
       uses: actions/upload-artifact@v4.6.2

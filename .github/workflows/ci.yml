@@ -34,27 +34,26 @@ jobs:
         file: "Blazor.Radzen.Theming.nuspec"
         version: ${{ github.event.inputs.version }}
         
-    - name: Check files
-      run: cat Blazor.Radzen.Theming.nuspec
+    # - name: Check files
+    #   run: cat Blazor.Radzen.Theming.nuspec
     
-    # - name: Create NuGet package
-    #   run: |
-    #     nuget pack Blazor.Radzen.Theming.nuspec `
-    #       -Properties commitId=${{ github.sha }} `
-    #       -OutputDirectory .\packages `
-    #       -Exclude .github `
-    #       -NonInteractive
-    # 
+    - name: Create NuGet package
+      run: |
+        nuget pack Blazor.Radzen.Theming.nuspec `
+          -Properties commitId=${{ github.sha }} `
+          -OutputDirectory .\packages `
+          -Exclude .github `
+          -NonInteractive
+    
     # - name: Publish to NuGet
     #   run: |
     #     nuget push .\packages\*.nupkg `
     #       -Source https://api.nuget.org/v3/index.json `
     #       -ApiKey ${{ secrets.NUGET_API_KEY }} `
-    #       -Verbosity detailed `
     #       -NonInteractive
-    # 
-    # - name: Upload package as artifact
-    #   uses: actions/upload-artifact@v4.6.2
-    #   with:
-    #     name: nuget-package
-    #     path: packages/*.nupkg
+    
+    - name: Upload package as artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: nuget-package
+        path: packages/*.nupkg

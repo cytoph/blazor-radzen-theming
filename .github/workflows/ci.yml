@@ -50,6 +50,7 @@ jobs:
         nuget push .\packages\*.nupkg `
           -Source https://api.nuget.org/v3/index.json `
           -ApiKey ${{ secrets.NUGET_API_KEY }} `
+          -Verbosity detailed `
           -NonInteractive
     
     - name: Upload package as artifact

@@ -20,16 +20,16 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5.0.0
     
     - name: Setup NuGet
-      uses: nuget/setup-nuget@v2
+      uses: NuGet/setup-nuget@v2.0.1
       with:
         nuget-version: 'latest'
     
     - name: Update version in nuspec
       if: ${{ github.event.inputs.version != '' }}
-      uses: vers-one/dotnet-project-version-updater@v1.6
+      uses: vers-one/dotnet-project-version-updater@v1.7
       with:
         file: "Blazor.Radzen.Theming.nuspec"
         version: ${{ github.event.inputs.version }}
@@ -49,7 +49,7 @@ jobs:
           -NonInteractive
     
     - name: Upload package as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4.6.2
       with:
         name: nuget-package
         path: packages/*.nupkg

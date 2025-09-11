@@ -42,7 +42,8 @@ jobs:
         nuget pack Blazor.Radzen.Theming.nuspec `
           -Properties commitId=${{ github.sha }} `
           -OutputDirectory .\packages `
-          -Exclude ".*" `
+          -Exclude ".git\**" `
+          -Exclude ".github\**" `
           -NonInteractive
     
     # - name: Publish to NuGet

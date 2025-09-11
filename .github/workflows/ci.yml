@@ -33,9 +33,9 @@ jobs:
       with:
         file: "Blazor.Radzen.Theming.nuspec"
         version: ${{ github.event.inputs.version }}
-		
-	- name: Check files
-	  run: ls
+        
+    - name: Check files
+      run: ls
     
     # - name: Create NuGet package
     #   run: |

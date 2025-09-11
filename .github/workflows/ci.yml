@@ -21,17 +21,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0 # complete git history for correct commit ID
     
     - name: Setup NuGet
       uses: nuget/setup-nuget@v2
       with:
         nuget-version: 'latest'
-        
-    - name: Get commit ID
-      id: commit
-      run: echo "commit_id=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
     
     - name: Update version in nuspec
       if: ${{ github.event.inputs.version != '' }}
@@ -43,7 +37,7 @@ jobs:
     - name: Create NuGet package
       run: |
         nuget pack Blazor.Radzen.Theming.nuspec \
-          -Properties commitId=${{ steps.commit.outputs.commit_id }} \
+          -Properties commitId=${{ github.sha }} \
           -OutputDirectory packages \
           -NonInteractive
     

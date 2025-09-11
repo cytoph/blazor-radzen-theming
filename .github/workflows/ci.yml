@@ -38,12 +38,12 @@ jobs:
       run: |
         nuget pack Blazor.Radzen.Theming.nuspec `
           -Properties commitId=${{ github.sha }} `
-          -OutputDirectory packages `
+          -OutputDirectory .\packages `
           -NonInteractive
     
     - name: Publish to NuGet
       run: |
-        nuget push packages/*.nupkg `
+        nuget push .\packages\*.nupkg `
           -Source https://api.nuget.org/v3/index.json `
           -ApiKey ${{ secrets.NUGET_API_KEY }} `
           -NonInteractive

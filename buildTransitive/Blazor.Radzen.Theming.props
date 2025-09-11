@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
 	<PropertyGroup>
 		<BRT_TargetPath>$(MSBuildProjectDirectory)\obj\Radzen.Blazor</BRT_TargetPath>
   		<BRT_CurrentVersion>$([System.IO.Path]::GetFileName($([System.IO.Path]::GetDirectoryName($([System.IO.Path]::GetDirectoryName($(MSBuildThisFileDirectory)))))))</BRT_CurrentVersion>

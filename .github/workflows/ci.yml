@@ -16,7 +16,7 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - name: Checkout repository
@@ -36,16 +36,16 @@ jobs:
     
     - name: Create NuGet package
       run: |
-        nuget pack Blazor.Radzen.Theming.nuspec \
-          -Properties commitId=${{ github.sha }} \
-          -OutputDirectory packages \
+        nuget pack Blazor.Radzen.Theming.nuspec `
+          -Properties commitId=${{ github.sha }} `
+          -OutputDirectory packages `
           -NonInteractive
     
     - name: Publish to NuGet
       run: |
-        nuget push packages/*.nupkg \
-          -Source https://api.nuget.org/v3/index.json \
-          -ApiKey ${{ secrets.NUGET_API_KEY }} \
+        nuget push packages/*.nupkg `
+          -Source https://api.nuget.org/v3/index.json `
+          -ApiKey ${{ secrets.NUGET_API_KEY }} `
           -NonInteractive
     
     - name: Upload package as artifact

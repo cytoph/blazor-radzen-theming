@@ -1,6 +1,6 @@
-# SCSS Source Files for Radzen Blazor Components
+﻿# SCSS Source Files for Radzen Blazor Components
 
-Provides SCSS source files from **Radzen.Blazor** components for custom theme development.
+Provides SCSS source files from the [**Radzen.Blazor**](https://www.nuget.org/packages/Radzen.Blazor) component library for custom theme development.
 
 [![License - MIT](https://img.shields.io/github/license/cytoph/blazor-radzen-theming?logo=github&style=for-the-badge)](https://github.com/cytoph/blazor-radzen-theming/blob/master/LICENSE)
 [![NuGet Version](https://img.shields.io/nuget/v/Blazor.Radzen.Theming?logo=nuget&style=for-the-badge)](https://www.nuget.org/packages/Blazor.Radzen.Theming/)
@@ -17,7 +17,7 @@ The package automatically includes the correct version of **Radzen.Blazor** as a
 
 Install the package via **NuGet Package Manager** or **.NET CLI**:
 
-```bash
+```
 dotnet add package Blazor.Radzen.Theming
 ```
 
@@ -29,10 +29,10 @@ After installation and during project restore, the SCSS files are automatically 
 
 1. **Copy a base theme:** Navigate to `obj/Radzen.Blazor/` in your project and copy one of the existing theme files (e.g., `standard.scss`, `material.scss`, etc.) to your own project directory (e.g., `wwwroot/`).
 
-2. **Update import paths:** In your copied theme file, modify the `@import` statements to point to the SCSS files in the `obj` directory. For example, if your theme file is in `wwwroot/`, the imports should look like:
+2. **Update import paths:** In your copied theme file, modify the `@import` statements to point to the SCSS files in the `obj` directory. For example, if your theme file is in `wwwroot/css/`, the imports should look like:
    ```scss
-   @import '../obj/Radzen.Blazor/variables';
-   @import '../obj/Radzen.Blazor/components';
+   @import '../../obj/Radzen.Blazor/variables';
+   @import '../../obj/Radzen.Blazor/components';
    // ... other imports
    ```
 

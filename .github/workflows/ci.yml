@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  # Triggers the workflow on push events but only for tags with the "v" prefix
+  push:
+    tags:
+      - 'v*'  # Trigger bei Tags mit Präfix "v"
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version Override (optional)'
+        required: false
+        type: string
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # complete git history for correct commit ID
+    
+    - name: Setup NuGet
+      uses: nuget/setup-nuget@v2
+      with:
+        nuget-version: 'latest'
+        
+    - name: Get commit ID
+      id: commit
+      run: echo "commit_id=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+    
+    - name: Update version in nuspec
+      if: ${{ github.event.inputs.version != '' }}
+      uses: vers-one/dotnet-project-version-updater@v1.6
+      with:
+        file: "Blazor.Radzen.Theming.nuspec"
+        version: ${{ github.event.inputs.version }}
+    
+    - name: Create NuGet package
+      run: |
+        nuget pack Blazor.Radzen.Theming.nuspec \
+          -Properties commitId=${{ steps.commit.outputs.commit_id }} \
+          -OutputDirectory packages \
+          -NonInteractive
+    
+    - name: Publish to NuGet
+      run: |
+        nuget push packages/*.nupkg \
+          -Source https://api.nuget.org/v3/index.json \
+          -ApiKey ${{ secrets.NUGET_API_KEY }} \
+          -NonInteractive
+    
+    - name: Upload package as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nuget-package
+        path: packages/*.nupkg

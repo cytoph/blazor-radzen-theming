@@ -388,8 +388,6 @@ $button-sizes: (
 $badge-font-weight: 500 !default;
 
 // Chip
-$chip-padding-block: 0.125rem !default;
-$chip-padding-inline: 0.75rem 0.125rem !default;
 $chip-border-radius: calc(4 * var(--rz-border-radius)) !default;
 
 // Input
@@ -1530,6 +1528,10 @@ $rz-toc-horizontal-link-selected-indicator-inset-inline: 0 !default;
 .rz-toc-link {
   @include rz-ripple($pseudo: true);
 }
+
+// FAB
+$fab-border-radius: var(--rz-border-radius-10) !default;
+$fab-active-border-radius: var(--rz-border-radius-10) !default;
 
 @import 'fonts';
 @import 'components';

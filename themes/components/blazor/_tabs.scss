@@ -99,7 +99,8 @@ $tabs-transition: var(--rz-transition-all) !default;
     }
 
     a,
-    a:not([href]):not([class]) {
+    a:not([href]):not([class]),
+    button {
       display: flex;
       align-items: center;
       color: inherit;
@@ -112,6 +113,9 @@ $tabs-transition: var(--rz-transition-all) !default;
       letter-spacing: var(--rz-tabs-tab-letter-spacing);
       text-decoration: none;
       cursor: pointer;
+      background: none;
+      border: none;
+      font-family: inherit;
 
       &:hover {
         text-decoration: none;
@@ -282,4 +286,25 @@ $tabs-transition: var(--rz-transition-all) !default;
 .rz-tabview-icon {
   font-size: var(--rz-tabs-icon-font-size);
   margin-inline: var(--rz-tabs-icon-margin-inline);
+}
+
+.rz-tabview-nav li[draggable="true"] {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.rz-tabview-dragging {
+  opacity: 0.5;
+}
+
+.rz-tabview-drag-over {
+  box-shadow: inset 2px 0 0 0 var(--rz-tabs-tab-selected-top-border-color);
+
+  .rz-tabview-left > .rz-tabview-nav &,
+  .rz-tabview-right > .rz-tabview-nav & {
+    box-shadow: inset 0 2px 0 0 var(--rz-tabs-tab-selected-top-border-color);
+  }
 }

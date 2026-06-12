@@ -214,7 +214,7 @@
   --rz-chat-avatar-border-radius: #{$rz-chat-avatar-border-radius};
   --rz-chat-avatar-font-size: #{$rz-chat-avatar-font-size};
   --rz-chat-avatar-font-weight: #{$rz-chat-avatar-font-weight};
-  --rz-chat-message-time-padding: #{$rz-chat-message-time-padding};
+  --rz-chat-message-info-padding: #{$rz-chat-message-info-padding};
   --rz-chat-message-callout-radius: #{$rz-chat-message-callout-radius};
 
   /* Checkbox */
@@ -253,6 +253,23 @@
   --rz-chip-gap: #{$chip-gap};
   --rz-chip-border-radius: #{$chip-border-radius};
   --rz-chip-font-size: #{$chip-font-size};
+  --rz-chip-icon-size: #{$chip-icon-size};
+  --rz-chip-font-weight: #{$chip-font-weight};
+  --rz-chip-border-width: #{$chip-border-width};
+  --rz-chip-selected-outline: #{$chip-selected-outline};
+  --rz-chip-selected-outline-offset: #{$chip-selected-outline-offset};
+  --rz-chip-sm-gap: #{$chip-sm-gap};
+  --rz-chip-sm-font-size: #{$chip-sm-font-size};
+  --rz-chip-sm-icon-size: #{$chip-sm-icon-size};
+  --rz-chip-sm-padding-block: #{$chip-sm-padding-block};
+  --rz-chip-sm-padding-inline: #{$chip-sm-padding-inline};
+  --rz-chip-xs-gap: #{$chip-xs-gap};
+  --rz-chip-xs-font-size: #{$chip-xs-font-size};
+  --rz-chip-xs-icon-size: #{$chip-xs-icon-size};
+  --rz-chip-xs-padding-block: #{$chip-xs-padding-block};
+  --rz-chip-xs-padding-inline: #{$chip-xs-padding-inline};
+  --rz-chip-list-gap: #{$chip-list-gap};
+  --rz-chip-disabled-opacity: #{$chip-disabled-opacity};
 
   /* ColorPicker */
   --rz-colorpicker-panel-border: #{$colorpicker-panel-border};
@@ -268,6 +285,7 @@
   --rz-colorpicker-item-size: #{$colorpicker-item-size};
   --rz-colorpicker-item-border-radius: #{$colorpicker-item-border-radius};
   --rz-colorpicker-item-shadow: #{$colorpicker-item-shadow};
+  --rz-colorpicker-item-selected-transform: #{$colorpicker-item-selected-transform};
   --rz-colorpicker-handle-size: #{$colorpicker-handle-size};
   --rz-colorpicker-handle-border: #{$colorpicker-handle-border};
   --rz-colorpicker-handle-shadow: #{$colorpicker-handle-shadow};
@@ -382,6 +400,12 @@
   --rz-dialog-mask-zindex: #{$dialog-mask-zindex};
   --rz-dialog-zindex: #{$dialog-zindex};
   --rz-dialog-transition: #{$dialog-transition};
+  --rz-dialog-resize-bar-color: #{$dialog-resize-bar-color};
+  --rz-dialog-resize-bar-background-color: #{$dialog-resize-bar-background-color};
+  --rz-dialog-resize-bar-hover-opacity: #{$dialog-resize-bar-hover-opacity};
+  --rz-dialog-resize-bar-thickness: #{$dialog-resize-bar-thickness};
+  --rz-dialog-resize-bar-length: #{$dialog-resize-bar-length};
+  --rz-dialog-resize-bar-handle-size: #{$dialog-resize-bar-handle-size};
 
   /* DropDown */
   --rz-dropdown-trigger-icon-width: #{$dropdown-trigger-icon-width};
@@ -453,6 +477,19 @@
   --rz-fieldset-toggle-focus-outline: #{$fieldset-toggle-focus-outline};
   --rz-fieldset-toggle-focus-outline-offset: #{$fieldset-toggle-focus-outline-offset};
 
+  /* Fab */
+  --rz-fab-inset-block-start: #{$fab-inset-block-start};
+  --rz-fab-inset-block-end: #{$fab-inset-block-end};
+  --rz-fab-inset-inline-start: #{$fab-inset-inline-start};
+  --rz-fab-inset-inline-end: #{$fab-inset-inline-end};
+  --rz-fab-zindex: #{$fab-zindex};
+  --rz-fab-border-radius: #{$fab-border-radius};
+  --rz-fab-active-border-radius: #{$fab-active-border-radius};
+  --rz-fab-shadow: #{$fab-shadow};
+  --rz-fab-hover-shadow: #{$fab-hover-shadow};
+  --rz-fab-active-shadow: #{$fab-active-shadow};
+  --rz-fabmenu-offset: #{$fabmenu-offset};
+  
   /* Footer */
   --rz-footer-padding: #{$footer-padding};
   --rz-footer-background-color: #{$footer-background-color};
@@ -610,6 +647,8 @@
   --rz-grid-loading-indicator-background-opacity: #{$grid-loading-indicator-background-opacity};
   --rz-grid-frozen-cell-border: #{$grid-frozen-cell-border};
   --rz-grid-frozen-cell-background-color: #{$grid-frozen-cell-background-color};
+  --rz-grid-frozen-stripe-background-color: #{$grid-frozen-stripe-background-color};
+  --rz-grid-frozen-stripe-odd-background-color: #{$grid-frozen-stripe-odd-background-color};
   --rz-grid-state-transition: #{$grid-state-transition};
   --rz-grid-group-header-padding: #{$grid-group-header-padding};
   --rz-grid-group-header-gap: #{$grid-group-header-gap};
@@ -624,6 +663,13 @@
   --rz-column-drag-handle-hover-color: #{$column-drag-handle-hover-color};
   --rz-column-drag-handle-margin-inline: #{$column-drag-handle-margin-inline};
   --rz-column-draggable-shadow: #{$column-draggable-shadow};
+
+  /* Gantt */
+  --rz-gantt-row-height: #{$gantt-row-height};
+  --rz-gantt-border: #{$gantt-border};
+  --rz-gantt-border-radius: #{$gantt-border-radius};
+  --rz-gantt-background-color: #{$gantt-background-color};
+  --rz-gantt-event-border-radius: #{$gantt-event-border-radius};
 
   /* Header */
   --rz-header-background-color: #{$header-background-color};
@@ -1072,6 +1118,12 @@
   --rz-sidebar-border-inline-end: #{$sidebar-border-inline-end};
   --rz-sidebar-background-color: #{$sidebar-background-color};
   --rz-sidebar-color: #{$sidebar-color};
+
+  /* Skeleton */
+  --rz-skeleton-background-color: #{$skeleton-background-color};
+  --rz-skeleton-animation-color: #{$skeleton-animation-color};
+  --rz-skeleton-border-radius: #{$skeleton-border-radius};
+  --rz-skeleton-animation-duration: #{$skeleton-animation-duration};
 
   /* Slider */
   --rz-slider-background-color: #{$slider-background-color};

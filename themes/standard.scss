@@ -156,6 +156,9 @@ $button-hover-background-size: 100% 200%, 100% 0%  !default;
 $button-focus-background-size: 100% 200%, 100% 0%  !default;
 $button-active-background-size: 100% 0%, 100% 200%  !default;
 
+// Chip
+$chip-disabled-opacity: 0.5 !default;
+
 // SelectButton
 $selectbar-background-color: transparent !default;
 $selectbar-selected-background-color: var(--rz-primary-lighter) !default;
@@ -586,8 +589,11 @@ $rz-chat-avatar-size: 2rem !default;
 $rz-chat-avatar-border-radius: var(--rz-border-radius) !default;
 $rz-chat-avatar-font-size: 1rem !default;
 $rz-chat-avatar-font-weight: 700 !default;
-$rz-chat-message-time-padding: 0 !default;
 $rz-chat-message-callout-radius: calc(var(--rz-border-radius) / 4) !default;
+
+// Skeleton
+$skeleton-background-color: var(--rz-base-300) !default;
+$skeleton-animation-color: var(--rz-base-100) !default;
 
 @import 'fonts';
 @import 'components';

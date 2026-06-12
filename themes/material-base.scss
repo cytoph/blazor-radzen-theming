@@ -387,8 +387,6 @@ $button-sizes: (
 $badge-font-weight: 500 !default;
 
 // Chip
-$chip-padding-block: 0.125rem !default;
-$chip-padding-inline: 0.75rem 0.125rem !default;
 $chip-border-radius: calc(4 * var(--rz-border-radius)) !default;
 
 // Input
@@ -1081,6 +1079,11 @@ $column-draggable-shadow: var(--rz-shadow-4) !default;
   --rz-grid-header-cell-border: #{$grid-cell-border};
 }
 
+// Gantt
+.rz-gantt .rz-data-grid {
+  --rz-grid-cell-padding: 0 1rem;
+}
+
 // Pager
 $pager-background-color: transparent !default;
 $pager-padding: 0.5rem 1rem !default;
@@ -1529,6 +1532,10 @@ $rz-toc-horizontal-link-selected-indicator-inset-inline: 0 !default;
 .rz-toc-link {
   @include rz-ripple($pseudo: true);
 }
+
+// FAB
+$fab-border-radius: var(--rz-border-radius-10) !default;
+$fab-active-border-radius: var(--rz-border-radius-10) !default;
 
 @import 'fonts';
 @import 'components';

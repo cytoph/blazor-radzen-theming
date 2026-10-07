@@ -1,0 +1,57 @@
+.rz-autocomplete {
+  box-sizing: border-box;
+  display: inline-block;
+  border: var(--rz-input-border);
+  border-radius: var(--rz-input-border-radius);
+  background-color: var(--rz-input-background-color);
+  transition: var(--rz-input-transition);
+  overflow: hidden;
+
+  &:hover:not(.rz-state-disabled) {
+    @extend %input-hover;
+  }
+
+  &:focus-within:not(.rz-state-disabled) {
+    @extend %input-focus;
+  }
+}
+
+.rz-state-disabled.rz-autocomplete {
+    @extend %input-disabled;
+}
+
+.rz-autocomplete-input {
+  padding-block: var(--rz-input-padding-block);
+  padding-inline: var(--rz-input-padding-inline);
+  background-color: transparent;
+  color: var(--rz-input-value-color);
+  box-shadow: var(--rz-input-shadow);
+  border: none;
+  height: var(--rz-input-height);
+  line-height: var(--rz-input-line-height);
+  width: 100%;
+  transition: var(--rz-input-transition);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    @extend %input-disabled;
+    border: none;
+  }
+}
+
+.rz-autocomplete-panel {
+  @extend %dropdown-panel;
+  overflow: auto;
+  box-sizing: content-box;
+}
+
+.rz-autocomplete-items {
+  @extend %rz-dropdown-items;
+}
+
+.rz-autocomplete-list-item {
+  @extend %rz-dropdown-item;
+}

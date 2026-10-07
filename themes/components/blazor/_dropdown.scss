@@ -1,0 +1,295 @@
+$dropdown-trigger-icon: 'arrow_drop_down' !default;
+$dropdown-trigger-icon-width: var(--rz-icon-size) !default;
+$dropdown-trigger-icon-height: $dropdown-trigger-icon-width !default;
+$dropdown-trigger-icon-margin-block: 0 !default;
+$dropdown-trigger-icon-margin-inline: 0 0.5rem !default;
+$dropdown-horizontal-padding: 0.5rem !default;
+$dropdown-items-margin: 0 (-$dropdown-horizontal-padding) !default;
+$dropdown-items-padding: 0 !default;
+$dropdown-item-padding: $dropdown-horizontal-padding !default;
+$dropdown-item-font-size: var(--rz-input-font-size) !default;
+$dropdown-item-hover-background-color: var(--rz-secondary-light) !default;
+$dropdown-item-hover-color: var(--rz-on-secondary-light) !default;
+$dropdown-item-selected-background-color: var(--rz-secondary-dark) !default;
+$dropdown-item-selected-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.01) !default;
+$dropdown-item-selected-color: var(--rz-on-secondary-dark) !default;
+$dropdown-item-selected-hover-background-color: var(--rz-secondary) !default;
+$dropdown-item-selected-hover-color: var(--rz-on-secondary) !default;
+$dropdown-item-transition: none !default;
+$dropdown-item-disabled-opacity: 0.2 !default;
+$dropdown-item-border-radius: 0 !default;
+$dropdown-label-padding-block: 0 !default;
+$dropdown-label-padding-inline: 0 $dropdown-trigger-icon-width !default;
+$dropdown-filter-border: var(--rz-border-base-100) !default;
+$dropdown-filter-padding: 0.5rem 0 !default;
+$dropdown-open-background-color: var(--rz-base-background-color) !default;
+$dropdown-open-border: var(--rz-input-border) !default;
+$dropdown-panel-padding: 0 $dropdown-horizontal-padding !default;
+$dropdown-panel-border: var(--rz-input-border) !default;
+$dropdown-panel-shadow: none !default;
+$dropdown-chips-padding-block: var(--rz-input-padding-block) !default;
+$dropdown-chips-padding-inline: var(--rz-input-padding-inline) !default;
+$multiselect-checkbox-margin-block: 0 !default;
+$multiselect-checkbox-margin-inline: 0 0.5rem !default;
+
+%dropdown {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  text-align: start;
+
+  @extend %input;
+
+  &.rz-state-disabled {
+    @extend %input-disabled;
+  }
+
+  .rz-placeholder {
+    color: var(--rz-input-placeholder-color);
+  }
+}
+
+.rz-dropdown {
+  @extend %dropdown;
+
+  &.rz-dropdown-open {
+    background-color: var(--rz-dropdown-open-background-color);
+    border: var(--rz-dropdown-open-border);
+  }
+}
+
+.rz-multiselect {
+  @extend %dropdown;
+
+  &.rz-state-focus {
+    background-color: var(--rz-dropdown-open-background-color);
+    border: var(--rz-dropdown-open-border);
+  }
+}
+
+%dropdown-trigger {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  inset-block-end: 0;
+
+  .rzi {
+    width: var(--rz-dropdown-trigger-icon-width);
+    height: var(--rz-dropdown-trigger-icon-height);
+    font-size: var(--rz-dropdown-trigger-icon-height);
+    margin-block: var(--rz-dropdown-trigger-icon-margin-block);
+    margin-inline: var(--rz-dropdown-trigger-icon-margin-inline);
+  }
+
+  .rzi-chevron-down {
+    &:before {
+      content: $dropdown-trigger-icon;
+    }
+  }
+}
+
+.rz-dropdown-trigger {
+  @extend %dropdown-trigger;
+}
+
+.rz-dropdown-clear-icon {
+  position: absolute;
+  inset-inline-end: calc(var(--rz-dropdown-trigger-icon-width) + 0.5rem);
+  inset-block-start: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: var(--rz-dropdown-trigger-icon-height);
+  opacity: 0.4;
+
+  &:before {
+    content: 'close';
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .rz-state-disabled > & {
+    display: none;
+  }
+}
+
+.rz-multiselect-trigger {
+  @extend %dropdown-trigger;
+}
+
+%dropdown-panel {
+  position: absolute;
+  background-color: var(--rz-dropdown-open-background-color);
+  border-radius: var(--rz-input-border-radius);
+  border: var(--rz-dropdown-panel-border);
+  box-shadow: var(--rz-dropdown-panel-shadow);
+}
+
+.rz-dropdown-panel {
+  @extend %dropdown-panel;
+  box-sizing: content-box;
+  padding: var(--rz-dropdown-panel-padding);
+}
+
+.rz-multiselect-panel {
+  @extend %dropdown-panel;
+  box-sizing: content-box;
+  padding: var(--rz-dropdown-panel-padding);
+
+  .rz-chkbox {
+    margin-block: var(--rz-multiselect-checkbox-margin-block);
+    margin-inline: var(--rz-multiselect-checkbox-margin-inline);
+  }
+}
+
+%rz-dropdown-items, .rz-dropdown-items {
+  list-style: none;
+  padding: var(--rz-dropdown-items-padding);
+  margin: 0;
+
+  li {
+    /* The 'No results found' item has no CSS class */
+    @extend %rz-dropdown-item;
+  }
+}
+
+.rz-multiselect-items {
+  @extend %rz-dropdown-items;
+}
+
+.rz-dropdown-items-wrapper,
+.rz-multiselect-items-wrapper {
+  overflow: auto;
+  margin: var(--rz-dropdown-items-margin);
+  border-radius: var(--rz-input-border-radius);
+}
+
+.rz-multiselect-items-wrapper {
+  overflow: auto;
+}
+
+.rz-dropdown-filter-container {
+  padding: var(--rz-dropdown-filter-padding);
+  @extend %filter-container;
+  border-bottom: var(--rz-dropdown-filter-border);
+}
+
+%rz-dropdown-filter, .rz-dropdown-filter {
+  background-color: transparent;
+  color: var(--rz-text-color);
+}
+
+.rz-multiselect-header {
+  display: flex;
+  align-items: center;
+  padding: var(--rz-dropdown-item-padding);
+  margin: var(--rz-dropdown-items-margin);
+}
+
+@mixin dropdown-item($radius: $dropdown-item-border-radius) {
+  cursor: default;
+  font-size: var(--rz-dropdown-item-font-size);
+
+  &.rz-state-highlight {
+    background-color: var(--rz-dropdown-item-selected-background-color);
+    color: var(--rz-dropdown-item-selected-color);
+    box-shadow: var(--rz-dropdown-item-selected-shadow);
+
+    @if $radius {
+      border-radius: $radius;
+    }
+
+    &:hover {
+      background-color: var(--rz-dropdown-item-selected-hover-background-color);
+      color: var(--rz-dropdown-item-selected-hover-color);
+    }
+  }
+
+  &.rz-state-disabled {
+      opacity: var(--rz-dropdown-item-disabled-opacity);
+      cursor: initial;
+  }
+}
+
+@mixin dropdown-item-hover($radius: $dropdown-item-border-radius) {
+  &:hover {
+    background-color: var(--rz-dropdown-item-hover-background-color);
+    color: var(--rz-dropdown-item-hover-color);
+    @if $radius {
+      border-radius: $radius;
+    }
+  }
+}
+
+%rz-dropdown-item, .rz-dropdown-item {
+  padding: var(--rz-dropdown-item-padding);
+  transition: var(--rz-dropdown-item-transition);
+
+    @include dropdown-item();
+    @include dropdown-item-hover();
+}
+
+
+.rz-multiselect-close {
+  display: none;
+}
+
+.rz-multiselect-filter-container {
+  @extend %filter-container;
+  flex: auto;
+  border-bottom: var(--rz-dropdown-filter-border);
+
+  .rz-inputtext {
+    @extend %rz-dropdown-filter;
+    padding: 0;
+  }
+}
+
+.rz-multiselect-item {
+    @extend %rz-dropdown-item;
+    display: flex;
+    align-items: center;
+}
+
+.rz-multiselect-item-content {
+  flex: 1;
+}
+
+.rz-multiselect-label-container,
+.rz-dropdown-label {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-block: var(--rz-dropdown-label-padding-block);
+  padding-inline: var(--rz-dropdown-label-padding-inline);
+  margin: 0;
+}
+
+.rz-dropdown-chips {
+    height: inherit;
+    padding-block: var(--rz-dropdown-chips-padding-block);
+    padding-inline: var(--rz-dropdown-chips-padding-inline);
+
+    .rz-dropdown-chips-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        margin-inline-end: 3rem;
+    }
+
+    @include chip();
+}
+
+.rz-clear {
+  .rz-multiselect-label-container,
+  .rz-dropdown-label {
+    padding-inline-end: calc(2 * var(--rz-dropdown-trigger-icon-width));
+  }
+}

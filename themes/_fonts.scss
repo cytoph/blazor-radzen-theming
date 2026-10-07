@@ -1,0 +1,36 @@
+$fonts-path: '../fonts';
+
+@font-face {
+  font-family: 'Material Symbols';
+  src: url('#{$fonts-path}/MaterialSymbolsOutlined.woff2') format('woff2 supports variations'),
+         url('#{$fonts-path}/MaterialSymbolsOutlined.woff2') format('woff2-variations');
+  font-style: normal;
+  font-weight: 100 700;
+}
+
+@if $material == false and $fluent == false {
+  @font-face {
+    font-family: 'Source Sans Pro';
+    src: url('#{$fonts-path}/SourceSans3VF-Upright.ttf.woff2') format('woff2 supports variations'),
+         url('#{$fonts-path}/SourceSans3VF-Upright.ttf.woff2') format('woff2-variations');
+    font-style: normal;
+    font-weight: 200 900;
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    src: url('#{$fonts-path}/SourceSans3VF-Italic.ttf.woff2') format('woff2 supports variations'),
+         url('#{$fonts-path}/SourceSans3VF-Italic.ttf.woff2') format('woff2-variations');
+    font-style: italic;
+    font-weight: 200 900;
+  }
+}
+
+@if $material == true {
+  @font-face {
+    font-family: 'Roboto';
+    src: url('#{$fonts-path}/RobotoFlex.woff2') format('woff2 supports variations'),
+         url('#{$fonts-path}/RobotoFlex.woff2') format('woff2-variations');
+    font-weight: 100 1000;
+  }
+}

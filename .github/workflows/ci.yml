@@ -15,6 +15,14 @@ on:
         description: 'Version Override (optional)'
         required: false
         type: string
+      tag:
+        description: 'Tag to build and publish (optional, e.g. "v5.9.900"); uses this workflow instead of the one stored in the tag'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  id-token: write # required for NuGet trusted publishing
 
 jobs:
   build-and-publish:
@@ -23,6 +31,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5.0.0
+      with:
+        ref: ${{ inputs.tag || github.ref }}
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v2.0.1
@@ -39,17 +49,23 @@ jobs:
     - name: Create NuGet package
       run: |
         nuget pack Blazor.Radzen.Theming.nuspec `
-          -Properties commitId=${{ github.sha }} `
+          -Properties "commitId=$(git rev-parse HEAD)" `
           -OutputDirectory .\packages `
           -Exclude ".git\**" `
           -Exclude ".github\**" `
           -NonInteractive
 
+    - name: NuGet login (trusted publishing)
+      uses: NuGet/login@v1
+      id: nuget-login
+      with:
+        user: cytoph
+
     - name: Publish to NuGet
       run: |
         nuget push .\packages\*.nupkg `
           -Source https://api.nuget.org/v3/index.json `
-          -ApiKey ${{ secrets.NUGET_API_KEY }} `
+          -ApiKey ${{ steps.nuget-login.outputs.NUGET_API_KEY }} `
           -SkipDuplicate `
           -NonInteractive
 

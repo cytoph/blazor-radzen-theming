@@ -1,0 +1,52 @@
+$rz-icon-font-family: 'Material Symbols' !default;
+$rz-icon-size: 1.25rem !default;
+$rz-icon-fill: 0 !default;
+$rz-icon-weight: inherit !default;
+$rz-icon-grade: 0 !default;
+$rz-icon-optical-size: 48 !default;
+
+%rzi, .rzi {
+  box-sizing: border-box;
+  font-family: var(--rz-icon-font-family);
+  font-weight: var(--rz-icon-weight, inherit);
+  font-style: normal;
+  font-size: var(--rz-icon-size);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  font-variation-settings: "FILL" var(--rz-icon-fill), "GRAD" var(--rz-icon-grade), "opsz" var(--rz-icon-optical-size);
+
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+i.rzi {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@each $style, $rule in map-merge($severity-styles-map, $base-styles-map) {
+  .rzi-#{$style} {
+    @each $name, $value in $rule {
+      @if $name == 'background-color' {
+        color: #{$value};
+      }
+    }
+  }
+}

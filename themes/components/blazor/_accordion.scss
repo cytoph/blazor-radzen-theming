@@ -1,0 +1,145 @@
+$accordion-item-padding-block: 0.25rem !default;
+$accordion-item-padding-inline: 0 !default;
+$accordion-item-margin: 0 !default;
+$accordion-item-border: none !default;
+$accordion-item-background-color: var(--rz-base-background-color) !default;
+$accordion-item-color: var(--rz-text-color) !default;
+$accordion-item-focus-outline: var(--rz-outline-focus) !default;
+$accordion-item-focus-outline-offset: calc(-1 * var(--rz-outline-width)) !default;
+$accordion-item-line-height: 1.25rem !default;
+$accordion-item-font-size: var(--rz-body-font-size) !default;
+$accordion-item-font-weight: normal !default;
+$accordion-icon-width: var(--rz-icon-size) !default;
+$accordion-icon-height: $accordion-icon-width !default;
+$accordion-icon-font-size: var(--rz-icon-size) !default;
+$accordion-icon-margin-inline: 0 0.25rem !default;
+$accordion-toggle-icon-margin-inline: $accordion-icon-margin-inline !default;
+$accordion-toggle-icon-order: 0 !default;
+$accordion-toggle-icon-collapsed: 'arrow_right' !default;
+$accordion-toggle-icon-collapsed-rtl: 'arrow_left' !default;
+$accordion-toggle-icon-expanded: 'arrow_drop_down' !default;
+$accordion-toggle-icon-expanded-rtl: $accordion-toggle-icon-expanded !default;
+$accordion-selected-color: var(--rz-secondary) !default;
+$accordion-hover-color: $accordion-selected-color !default;
+$accordion-content-padding-block: 0.5rem !default;
+$accordion-content-padding-inline: 1.5rem 0.5rem !default;
+$accordion-content-font-size: $accordion-item-font-size !default;
+$accordion-border-radius: var(--rz-border-radius) !default;
+$accordion-shadow: none !default;
+
+.rz-accordion {
+  box-sizing: border-box;
+  border-radius: var(--rz-accordion-border-radius);
+  box-shadow: var(--rz-accordion-shadow);
+
+  & > div:first-child {
+    border-radius: var(--rz-accordion-border-radius) var(--rz-accordion-border-radius) 0 0;
+  }
+
+  & > div:last-child,
+  & > div:last-child > div {
+    border-radius: 0 0 var(--rz-accordion-border-radius) var(--rz-accordion-border-radius);
+  }
+
+  & > div:only-child {
+    border-radius: var(--rz-accordion-border-radius);
+  }
+
+  &:focus {
+    outline: var(--rz-outline-normal);
+  }
+
+  &:focus-visible {
+    outline: var(--rz-accordion-item-focus-outline);
+  }
+
+  .rz-accordion-header {
+    background-color: var(--rz-accordion-item-background-color);
+    margin: var(--rz-accordion-item-margin);
+
+    &:not(:first-child) {
+      border-top: var(--rz-accordion-item-border)
+    }
+
+    > a {
+      padding-block: var(--rz-accordion-item-padding-block);
+      padding-inline: var(--rz-accordion-item-padding-inline);
+      color: var(--rz-accordion-item-color);
+      line-height: var(--rz-accordion-item-line-height);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-size: var(--rz-accordion-item-font-size);
+      font-weight: var(--rz-accordion-item-font-weight);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--rz-accordion-hover-color);
+      }
+
+      span:not(.rz-accordion-toggle-icon) {
+        flex-grow: 1;
+      }
+    }
+
+    :focus-visible &.rz-state-focused {
+      outline: var(--rz-accordion-item-focus-outline);
+      outline-offset: var(--rz-accordion-item-focus-outline-offset);
+    }
+
+    .rzi {
+      font-size: var(--rz-accordion-icon-font-size);
+      margin-inline: var(--rz-accordion-icon-margin-inline);
+    }
+  }
+}
+
+.rz-accordion-toggle-icon {
+  width: var(--rz-accordion-icon-width);
+  height: var(--rz-accordion-icon-height);
+  font-size: var(--rz-accordion-icon-font-size);
+  order: var(--rz-accordion-toggle-icon-order);
+
+  &.rzi {
+    margin-inline: var(--rz-accordion-toggle-icon-margin-inline);
+  }
+
+  &.rzi-chevron-right {
+    &:before {
+      content: $accordion-toggle-icon-collapsed;
+    }
+  }
+
+  &.rzi-chevron-down {
+    &:before {
+      content: $accordion-toggle-icon-expanded;
+    }
+  }
+}
+
+.rz-accordion-content-wrapper-overflown {
+  overflow: hidden;
+}
+
+.rz-accordion-content {
+  font-size: var(--rz-accordion-content-font-size);
+  background-color: var(--rz-accordion-item-background-color);
+  padding-block: var(--rz-accordion-content-padding-block);
+  padding-inline: var(--rz-accordion-content-padding-inline);
+}
+
+/* Right-to-left toggle icons */
+*[dir="rtl"] .rz-accordion-toggle-icon {
+
+  &.rzi-chevron-right {
+    &:before {
+      content: $accordion-toggle-icon-collapsed-rtl;
+    }
+  }
+
+  &.rzi-chevron-down {
+    &:before {
+      content: $accordion-toggle-icon-expanded-rtl;
+    }
+  }
+}

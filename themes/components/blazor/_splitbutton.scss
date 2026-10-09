@@ -1,0 +1,81 @@
+$splitbutton-menu-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.06) !default;
+$splitbutton-menu-min-width: 10rem !default;
+$splitbutton-background-color: var(--rz-primary) !default;
+$splitbutton-border-radius: var(--rz-border-radius) !default;
+$splitbutton-sizes: xs, sm, md, lg;
+
+.rz-splitbutton {
+  box-sizing: border-box;
+  display: inline-flex;
+
+  .rz-button-icon-only {
+    .rz-button-text {
+      display: none;
+    }
+  }
+
+  .rz-button.rz-splitbutton-menubutton {
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+  }
+
+  .rz-button:not(.rz-splitbutton-menubutton) {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+  }
+}
+
+.rz-splitbutton-menu {
+  @extend %dropdown-panel;
+  display: none;
+  position: absolute;
+  min-width: var(--rz-splitbutton-menu-min-width);
+  box-shadow: var(--rz-splitbutton-menu-shadow);
+}
+
+.rz-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rz-menuitem {
+  @extend %rz-dropdown-item;
+
+  .rz-menuitem-link {
+    color: inherit;
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .rz-menuitem-icon {
+    @extend %rzi;
+    vertical-align: top;
+  }
+}
+
+.rz-splitbutton-menubutton {
+  margin-inline-start: 1px;
+
+  &.rz-variant-outlined {
+    border-inline-start: 0;
+    margin-inline-start: calc(-1 * var(--rz-border-width));
+  }
+
+  .rz-button-text {
+    display: none;
+  }
+
+  .rzi-chevron-down {
+    &:before {
+      content: 'arrow_drop_down';
+    }
+  }
+}
